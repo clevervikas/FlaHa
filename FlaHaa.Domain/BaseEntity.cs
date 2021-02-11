@@ -10,7 +10,7 @@ namespace FlaHa.Domain
     {
         public BaseEntity()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
         }
         public Guid Id { get; set; }
     }
