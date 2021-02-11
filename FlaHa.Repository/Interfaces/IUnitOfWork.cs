@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FlaHa.Repository.Interfaces
 {
-    interface IUnitOfWork <T>:IDisposable where T: class 
+    public interface IUnitOfWork <T>:IDisposable where T: class 
     {
         IRepo<T> repo { get; }
         Task Commit();
