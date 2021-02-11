@@ -1,4 +1,6 @@
-﻿using Flahaa.Web.Models;
+﻿using FlaHa.Domain;
+using FlaHa.Repository.Interfaces;
+using Flahaa.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,16 +13,16 @@ namespace Flahaa.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUnitOfWork<Customer> unitOfWork;
+        public HomeController(IUnitOfWork<Customer> unitOfWork)
         {
-            _logger = logger;
+            this.unitOfWork = unitOfWork;  
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var list = await unitOfWork.repo.GetAll();
+            return View(list);
         }
 
         public IActionResult Privacy()
