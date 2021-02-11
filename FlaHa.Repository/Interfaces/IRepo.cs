@@ -9,11 +9,11 @@ namespace FlaHa.Repository.Interfaces
 {
     public interface IRepo<T> where T:class 
     {
-        Task<T> Get();
-        Task<T> GetByID(object ID);
+        Task Add(T Entity);
+        Task<T> GetByID(Guid ID);
         void Update(T entity);
         void Delete(T entity);
-        Task<IList<T>> All();
+        Task<IList<T>> GetAll();
         IQueryable<T> Where(Expression<Func<T, bool>> expression);
     }
 }

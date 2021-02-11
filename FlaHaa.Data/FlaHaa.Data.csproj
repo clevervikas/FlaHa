@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FlaHa.Repository\FlaHaa.Repository.csproj" />
     <ProjectReference Include="..\FlaHaa.Domain\FlaHaa.Domain.csproj" />
   </ItemGroup>
 
