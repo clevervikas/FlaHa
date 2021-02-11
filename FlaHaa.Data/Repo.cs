@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FlaHaa.Data
 {
-    class Repo<T> : IRepo<T> where T : class,IEntity
+    public class Repo<T> : IRepo<T> where T : class,IEntity
     {
 
         DbSet<T> Table { get; set; }

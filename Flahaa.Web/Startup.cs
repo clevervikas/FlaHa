@@ -1,3 +1,4 @@
+using Flahaa.Web.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +24,12 @@ namespace Flahaa.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //get connection string from config
+            var connectionString = Configuration.GetConnectionString("Default");
+
+            //add connection dtring to srvice thu extended method 
+            services.AddEntityFramework(connectionString);
+
             services.AddControllersWithViews();
         }
 
